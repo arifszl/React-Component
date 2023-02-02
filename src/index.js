@@ -1,17 +1,34 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDom from 'react-dom'
+import { faker } from '@faker-js/faker';
+import CommentDetail from './CommentDetail';
+import ApprovalCard from './AprrovalCard';
+const App=()=>{
+    return(
+      <div className="ui container comments ">
+        <ApprovalCard>
+        <CommentDetail 
+        author="sam" 
+        date="6:00PM" 
+        text="nice blog"
+        avatar={faker.image.avatar()}/>
+        </ApprovalCard>
+        <ApprovalCard> 
+             <CommentDetail author="Aleex" date="7:00PM" text="nailed it" avatar={faker.image.avatar()}/>
+        </ApprovalCard>
+      <ApprovalCard>  
+        <CommentDetail author="Johnathan" date="8:00PM" text="opps commented" avatar={faker.image.avatar()}/>
+      </ApprovalCard>
+      
+      
+      
+        
+      </div>
+    );
+}
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+ReactDom.render(<App/>,document.querySelector('#root'));
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+//{} is use when we want to show javascript variables
+//<   />  is when we refer to components
+// Prop system is used to pass data from parent to a child
